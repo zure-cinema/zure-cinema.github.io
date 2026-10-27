@@ -63,6 +63,22 @@ h2::after{content:"";flex:1;height:1px;background:var(--line)}
 button{font:inherit;font-size:13px;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:6px 12px;cursor:pointer}
 button:hover{background:var(--ink);color:var(--paper)}
 .mailbtn{font-size:13px;font-weight:700;background:var(--wine);color:#fff;padding:7px 12px;text-decoration:none;width:100%;text-align:center}
+.formbtn{font-size:14px;font-weight:700;background:var(--ink);color:var(--paper);padding:10px 12px;text-decoration:none;text-align:center;display:block}
+.plans{display:flex;flex-direction:column;border:1px solid var(--line);background:var(--sheet)}
+.plan{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:14px 16px;border-top:1px solid var(--line)}
+.plan:first-child{border-top:0}
+.plan .pn{font-family:var(--f-display);font-weight:800;font-size:17px}
+.plan .pl{font-size:12px;color:var(--muted);grid-column:1}
+.plan .pp{font-family:var(--f-display);font-weight:800;font-size:20px;grid-row:1 / span 2;grid-column:2;align-self:center;font-variant-numeric:tabular-nums;white-space:nowrap}
+.plan .pp small{font-size:12px;font-weight:600}
+.plan.launch{background:var(--wine-soft)}
+.plan.launch .pn{color:var(--wine)}
+.plan .tag2{display:inline-block;background:var(--wine);color:#fff;font-family:var(--f-body);font-size:11px;font-weight:700;padding:1px 7px;margin-left:6px;vertical-align:3px}
+.small{font-size:12px;color:var(--muted);margin:10px 0 0;line-height:1.7}
+.tools{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:12px 0 0;padding:12px 14px;border:1px solid var(--line);font-size:12px}
+.tools::before{content:"使用ツール";grid-column:1 / -1;font-weight:700;color:var(--wine);letter-spacing:.1em;margin-bottom:2px}
+.tools dt{color:var(--muted);font-weight:700}
+.tools dd{margin:0;min-width:0}
 .note{font-size:13px;color:var(--muted)}
 
 /* リンク */
@@ -85,7 +101,7 @@ button:hover{background:var(--ink);color:var(--paper)}
 .w.soon .band{background:var(--muted)}
 .w.soon{border-style:dashed}
 .w .th{display:block;aspect-ratio:3/4;background:#1A1817;overflow:hidden;position:relative}
-.w .th img{width:100%;height:100%;object-fit:cover;display:block}
+.w .th img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .w .th::after{content:"▶";position:absolute;right:8px;bottom:6px;color:#fff;font-size:14px;text-shadow:0 1px 3px #0008}
 .w .th.land{aspect-ratio:16/9}
 @media (max-width:360px){.works{grid-template-columns:1fr}}
@@ -116,12 +132,13 @@ footer{text-align:center;font-size:12px;color:var(--muted)}
     <h2 id="h-work">映像制作のご相談</h2>
     <div class="work">
       <p class="lead">AIで映像をつくります</p>
-      <p class="note">SNS用ショートドラマ／お店や商品のCM／会社紹介・採用動画など。「こんな動画は作れる？」だけでもお気軽にどうぞ。</p>
+      <p class="note">SNS用ショートドラマ／お店や商品のCM／会社紹介・採用動画など。会社・お店のご依頼はもちろん、個人のご依頼（お祝い・記念・趣味など）も歓迎です。「こんな動画は作れる？」だけでもお気軽にどうぞ。</p>
+      <a class="formbtn" id="formbtn" href="#" target="_blank" rel="noopener" hidden>フォームで相談する</a>
       <div class="mail"><a class="mailbtn" href="mailto:zurecinema@gmail.com">メールで相談する</a>
         <code id="mail">zurecinema@gmail.com</code>
         <button type="button" id="copy">コピー</button>
       </div>
-      <p class="note" id="copied" aria-live="polite">メール、またはInstagramのDMで受け付けています。</p>
+      <p class="note" id="copied" aria-live="polite">フォーム・メール・InstagramのDMで受け付けています。</p>
     </div>
   </section>
 
@@ -135,10 +152,26 @@ footer{text-align:center;font-size:12px;color:var(--muted)}
     <div class="works" id="works"></div>
   </section>
 
+  <section aria-labelledby="h-price">
+    <h2 id="h-price">料金の目安</h2>
+    <div class="plans">
+      <div class="plan launch"><span class="pn">立ち上げ期<span class="tag2">先着3件</span></span><span class="pl">ショート15〜30秒／制作事例として紹介OKの方</span><span class="pp">30,000<small>円</small></span></div>
+      <div class="plan"><span class="pn">ショート</span><span class="pl">15〜30秒／SNS投稿向け</span><span class="pp">50,000<small>円</small></span></div>
+      <div class="plan"><span class="pn">標準</span><span class="pl">30〜60秒／ナレーション・オリジナルBGM付き</span><span class="pp">150,000<small>円</small></span></div>
+    </div>
+    <p class="small">尺の延長・オリジナルキャラクター・オリジナルBGMなどのオプションもご用意しています。内容に合わせてお見積もりします。<br>実在の人物の写真を使う場合は、ご本人の了承をお願いしています。</p>
+    <dl class="tools">
+      <dt>映像</dt><dd>Kling／Seedance／Veo（Google Flow）／MiniMax／Zopia</dd>
+      <dt>画像</dt><dd>Nano Banana／GPT Image／Seedream</dd>
+      <dt>音声</dt><dd>ElevenLabs</dd>
+      <dt>編集</dt><dd>DaVinci Resolve／CapCut</dd>
+    </dl>
+  </section>
+
   <section aria-labelledby="h-flow">
     <h2 id="h-flow">ご依頼の流れ</h2>
     <ol class="flow">
-      <li><div>メールかDMでご相談<span>用途・尺・イメージをざっくりで大丈夫です</span></div></li>
+      <li><div>フォーム・メール・DMでご相談<span>用途・尺・イメージをざっくりで大丈夫です</span></div></li>
       <li><div>構成と料金をお見積り</div></li>
       <li><div>制作<span>納期は内容によりご相談</span></div></li>
       <li><div>確認・修正して納品</div></li>
@@ -150,6 +183,9 @@ footer{text-align:center;font-size:12px;color:var(--muted)}
 
 <script>
 /* ここを書き換えるだけで更新できます。yt に動画IDを入れるとサムネイルが出ます。url が空のものはリンクなしになります */
+/* GoogleフォームのURLを入れると「フォームで相談する」ボタンが出ます */
+const FORM_URL = "";
+if(FORM_URL){const f=document.getElementById("formbtn");f.href=FORM_URL;f.hidden=false;}
 const LINKS = [
   {t:"Instagram", s:"毎日18時更新", url:"https://www.instagram.com/zure_cinema/"},
   {t:"YouTube",   s:"ショートドラマ", url:"https://www.youtube.com/@zure_cinema"},
@@ -170,7 +206,7 @@ const WORKS = [
   {band:"店舗CM", ttl:"七灯珈琲 15秒CM", desc:"架空の珈琲店のCM。横長16:9の広告向け。", meta:"", yt:"tqUF6qrWWtE", land:true},
   {band:"映画予告編", ttl:"ロストエラ ―還れない世界―", desc:"気づいたら目の前に恐竜がいた。逃げ場のない予告編。", meta:"", yt:"Ce9lUCjwPoE"},
   {band:"予告編", ttl:"ショートドラマの予告編", desc:"映画の予告編のように見せる短尺作品。", meta:"", yt:"_F8bq3cnQac"},
-  {band:"ホラー連作", ttl:"狂怖街", desc:"違和感と不気味さで見せるホラーの連作。", meta:"", url:"https://www.youtube.com/@KYOFU-GAI"},
+  {band:"ホラー連作", ttl:"狂怖街", desc:"違和感と不気味さで見せるホラーの連作。「その部屋に入ってはいけない」「先住者」など。", meta:"", yt:"Y7Z_6_aAPcc", url:"https://www.youtube.com/@KYOFU-GAI"},
   {band:"サスペンス", ttl:"戦慄日和", desc:"前後編のサスペンス・スリラー。", meta:"制作中", soon:true}
 ];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -182,14 +218,14 @@ LINKS.forEach(l=>{
 });
 const works=document.getElementById("works");
 WORKS.forEach(w=>{
-  const url=w.yt?(w.land?`https://youtu.be/${w.yt}`:`https://www.youtube.com/shorts/${w.yt}`):(w.url||"");
+  const url=w.url||(w.yt?(w.land?`https://youtu.be/${w.yt}`:`https://www.youtube.com/shorts/${w.yt}`):"");
   const el=document.createElement(url?"a":"div");
   el.className="w"+(w.soon?" soon":"");
   if(url){el.href=url;el.target="_blank";el.rel="noopener"}
   let th="";
   if(w.yt){
-    const first=w.land?`https://i.ytimg.com/vi/${w.yt}/hqdefault.jpg`:`https://i.ytimg.com/vi/${w.yt}/oardefault.jpg`;
-    th=`<span class="th${w.land?" land":""}"><img src="${first}" alt="" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://i.ytimg.com/vi/${w.yt}/hqdefault.jpg'}"></span>`;
+    const first=w.land?`https://i.ytimg.com/vi/${w.yt}/hqdefault.jpg`:`https://i.ytimg.com/vi/${w.yt}/oar2.jpg`;
+    th=`<span class="th${w.land?" land":""}"><img src="${first}" alt="" loading="lazy" onload="if(this.naturalWidth<=120&&!this.dataset.f){this.dataset.f=1;this.src='https://i.ytimg.com/vi/${w.yt}/hqdefault.jpg'}" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://i.ytimg.com/vi/${w.yt}/hqdefault.jpg'}"></span>`;
   }
   el.innerHTML=`${th}<span class="band">${esc(w.band)}</span><div class="ttl">${esc(w.ttl)}</div><div class="desc">${esc(w.desc)}</div>${w.meta?`<div class="meta">${esc(w.meta)}</div>`:""}`;
   works.appendChild(el);
