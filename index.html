@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ズレシネマ｜AIでつくる職場のショートドラマ</title>
+<meta name="description" content="理不尽な上司も、日常の迷惑な人もスカッと成敗。AIでつくる職場のショートドラマ「ズレシネマ」。映像制作のご相談はこちら。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ズレシネマ｜AIでつくる職場のショートドラマ">
+<meta property="og:description" content="作品一覧と、AI映像制作のご相談窓口です。">
+<meta property="og:url" content="https://zure-cinema.github.io/">
+<meta property="og:image" content="https://zure-cinema.github.io/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: 1本の縦の帯。ロゴ → 仕事の窓口 → SNS → 作品（失言末路の帯デザインを流用）→ 制作の流れ */
+:root{
+  --paper:#ECE8DE;      /* ロゴの生成り */
+  --sheet:#F7F5F0;
+  --ink:#1A1817;
+  --muted:#6B6460;
+  --wine:#8C1F2E;       /* 帯のワインレッド */
+  --line:#D8D1C4;
+  --wine-soft:#8C1F2E14;
+  --f-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#141211;--sheet:#1E1B1A;--ink:#EDE8DE;--muted:#A39B94;--wine:#D05A68;--line:#332E2C;--wine-soft:#D05A6820;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#141211;--sheet:#1E1B1A;--ink:#EDE8DE;--muted:#A39B94;--wine:#D05A68;--line:#332E2C;--wine-soft:#D05A6820;color-scheme:dark}
+
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 56px}
+.wrap{max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:36px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+
+/* ロゴ */
+.head{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.mark{width:112px;height:112px;border-radius:50%;background:var(--sheet);border:1px solid var(--line);position:relative;display:grid;place-items:center;overflow:hidden}
+.mark span{font-family:var(--f-display);font-weight:800;font-size:44px;letter-spacing:-.04em;color:var(--ink);transform:translateY(-2px)}
+.mark::after{content:"";position:absolute;left:8%;right:8%;top:51%;height:2px;background:var(--wine);transform:rotate(-1.5deg)}
+h1{font-family:var(--f-display);font-weight:800;font-size:28px;margin:0;letter-spacing:.08em}
+.tag{margin:0;color:var(--muted);font-size:14px;text-wrap:balance}
+.stats{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.stats b{display:block;font-family:var(--f-display);font-size:20px;color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* 見出し */
+h2{font-family:var(--f-display);font-size:13px;font-weight:600;letter-spacing:.2em;color:var(--wine);margin:0 0 12px;display:flex;align-items:center;gap:10px}
+h2::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* 仕事の窓口 */
+.work{background:var(--sheet);border:1px solid var(--line);border-left:3px solid var(--wine);padding:18px 18px 16px;display:flex;flex-direction:column;gap:10px}
+.work p{margin:0}
+.work .lead{font-weight:700;font-size:16px}
+.mail{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.mail code{font-family:var(--f-body);font-size:15px;font-weight:500;background:var(--wine-soft);padding:6px 10px;user-select:all;word-break:break-all;min-width:0}
+button{font:inherit;font-size:13px;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:6px 12px;cursor:pointer}
+button:hover{background:var(--ink);color:var(--paper)}
+.mailbtn{font-size:13px;font-weight:700;background:var(--wine);color:#fff;padding:7px 12px;text-decoration:none;width:100%;text-align:center}
+.note{font-size:13px;color:var(--muted)}
+
+/* リンク */
+.links{display:flex;flex-direction:column;gap:8px}
+.lk{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;background:var(--sheet);border:1px solid var(--line);text-decoration:none;transition:border-color .15s}
+.lk:hover{border-color:var(--ink)}
+.lk .t{font-weight:700}
+.lk .s{font-size:12px;color:var(--muted);display:block;font-weight:400}
+.lk .arrow{color:var(--wine);font-size:18px}
+.lk.off{opacity:.55;pointer-events:none}
+
+/* 作品：シリーズ帯 */
+.works{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.w{background:var(--sheet);border:1px solid var(--line);display:flex;flex-direction:column;text-decoration:none;min-width:0}
+.w:hover{border-color:var(--ink)}
+.w .band{background:var(--wine);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;padding:3px 8px;align-self:flex-start;margin:10px 10px 0}
+.w .ttl{font-family:var(--f-display);font-weight:800;font-size:16px;line-height:1.4;padding:8px 10px 0;border-bottom:2px solid var(--wine);margin:0 10px;padding-left:0;padding-right:0;padding-bottom:8px;text-wrap:balance}
+.w .desc{font-size:12px;color:var(--muted);padding:8px 10px 12px;line-height:1.6;flex:1}
+.w .meta{font-size:11px;padding:0 10px 10px;color:var(--wine);font-weight:700;font-variant-numeric:tabular-nums}
+.w.soon .band{background:var(--muted)}
+.w.soon{border-style:dashed}
+.w .th{display:block;aspect-ratio:3/4;background:#1A1817;overflow:hidden;position:relative}
+.w .th img{width:100%;height:100%;object-fit:cover;display:block}
+.w .th::after{content:"▶";position:absolute;right:8px;bottom:6px;color:#fff;font-size:14px;text-shadow:0 1px 3px #0008}
+.w .th.land{aspect-ratio:16/9}
+@media (max-width:360px){.works{grid-template-columns:1fr}}
+
+/* 流れ */
+ol.flow{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;counter-reset:f}
+ol.flow li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:baseline;font-size:14px}
+ol.flow li::before{counter-increment:f;content:counter(f);font-family:var(--f-display);font-weight:800;color:var(--wine);font-size:18px}
+ol.flow li span{color:var(--muted);font-size:12px;display:block}
+
+footer{text-align:center;font-size:12px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="head">
+    <div class="mark" aria-hidden="true"><span>ズレ</span></div>
+    <h1>ズレシネマ</h1>
+    <p class="tag">理不尽な上司も、日常の迷惑な人もスカッと成敗。<br>AIでつくる職場のショートドラマ</p>
+    <div class="stats">
+      <div><b>150万回+</b>開始1か月の総再生</div>
+      <div><b>36.1万回</b>最高再生（1本）</div>
+    </div>
+  </header>
+
+  <section aria-labelledby="h-work">
+    <h2 id="h-work">映像制作のご相談</h2>
+    <div class="work">
+      <p class="lead">AIで映像をつくります</p>
+      <p class="note">SNS用ショートドラマ／お店や商品のCM／会社紹介・採用動画など。「こんな動画は作れる？」だけでもお気軽にどうぞ。</p>
+      <div class="mail"><a class="mailbtn" href="mailto:zureshinema@gmail.com">メールで相談する</a>
+        <code id="mail">zureshinema@gmail.com</code>
+        <button type="button" id="copy">コピー</button>
+      </div>
+      <p class="note" id="copied" aria-live="polite">メール、またはInstagramのDMで受け付けています。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-sns">
+    <h2 id="h-sns">各SNS</h2>
+    <nav class="links" id="links"></nav>
+  </section>
+
+  <section aria-labelledby="h-works">
+    <h2 id="h-works">作品</h2>
+    <div class="works" id="works"></div>
+  </section>
+
+  <section aria-labelledby="h-flow">
+    <h2 id="h-flow">ご依頼の流れ</h2>
+    <ol class="flow">
+      <li><div>メールかDMでご相談<span>用途・尺・イメージをざっくりで大丈夫です</span></div></li>
+      <li><div>構成と料金をお見積り</div></li>
+      <li><div>制作<span>納期は内容によりご相談</span></div></li>
+      <li><div>確認・修正して納品</div></li>
+    </ol>
+  </section>
+
+  <footer>© ズレシネマ</footer>
+</div>
+
+<script>
+/* ここを書き換えるだけで更新できます。yt に動画IDを入れるとサムネイルが出ます。url が空のものはリンクなしになります */
+const LINKS = [
+  {t:"Instagram", s:"毎日18時更新", url:"https://www.instagram.com/zure_cinema/"},
+  {t:"YouTube",   s:"ショートドラマ", url:"https://www.youtube.com/@zure_cinema"},
+  {t:"TikTok",    s:"ショートドラマ", url:"https://www.tiktok.com/@zure_cinema"},
+  {t:"Threads",   s:"礼法無双を1話から", url:"https://www.threads.net/@zure_cinema"},
+  {t:"X",         s:"新作のお知らせ", url:"https://x.com/zure_cinema"},
+  {t:"note",      s:"制作の裏側", url:"https://note.com/zure_cinema"}
+];
+const WORKS = [
+  {band:"礼法無双 捌ノ型", ttl:"レジ列に割り込む女を成敗", desc:"ビジネスマナーを武道のように大げさに描く連作。", meta:"36.1万回再生", yt:"y1EEo1NkS4Q"},
+  {band:"礼法無双 陸ノ型", ttl:"カスハラ客をさすまたで成敗", desc:"店員を怒鳴る客を、動きで見せるアクション回。", meta:"16.9万回再生", yt:"zkHsEf39UJU"},
+  {band:"礼法無双 拾ノ型", ttl:"わざとぶつかる男を成敗", desc:"道を譲っただけで、男は電車に運ばれていく。", meta:"13.4万回再生", yt:"k99YjjrwPMk"},
+  {band:"礼法無双 漆ノ型", ttl:"パワハラ上司をシュレッダーで成敗", desc:"資料を叩きつける上司に、専務が一撃。", meta:"4.6万回再生", yt:"8NMSRV278DU"},
+  {band:"失言末路 肆ノ言", ttl:"「私の仕事じゃないんで」", desc:"と言った先輩の末路。リアル系の職場ショートドラマ。", meta:"10.7万回再生", yt:"_n3Wsvd26Wk"},
+  {band:"失言末路 拾弐ノ言", ttl:"「録音なんかしてないよな？」", desc:"と新人に言った部長の末路。", meta:"8.7万回再生", yt:"4LKcu2Qxevs"},
+  /* 公開したら soon を消して yt:"eQ5G33Wxugk" を入れる */
+  {band:"失言末路 捌ノ言", ttl:"オンライン会議の回", desc:"会議画面の中で進むドラマ。画面構成ごとAIで制作。", meta:"近日公開", soon:true},
+  {band:"店舗CM", ttl:"七灯珈琲 15秒CM", desc:"架空の珈琲店のCM。横長16:9の広告向け。", meta:"", yt:"tqUF6qrWWtE", land:true},
+  {band:"映画予告編", ttl:"ロストエラ ―還れない世界―", desc:"気づいたら目の前に恐竜がいた。逃げ場のない予告編。", meta:"", yt:"Ce9lUCjwPoE"},
+  {band:"予告編", ttl:"ショートドラマの予告編", desc:"映画の予告編のように見せる短尺作品。", meta:"", yt:"_F8bq3cnQac"},
+  {band:"ホラー連作", ttl:"狂怖街", desc:"違和感と不気味さで見せるホラーの連作。", meta:"", url:"https://www.youtube.com/@KYOFU-GAI"},
+  {band:"サスペンス", ttl:"戦慄日和", desc:"前後編のサスペンス・スリラー。", meta:"制作中", soon:true}
+];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const links=document.getElementById("links");
+LINKS.forEach(l=>{
+  const a=document.createElement("a");a.className="lk";a.href=l.url;a.target="_blank";a.rel="noopener";
+  a.innerHTML=`<span><span class="t">${esc(l.t)}</span><span class="s">${esc(l.s)}</span></span><span class="arrow" aria-hidden="true">→</span>`;
+  links.appendChild(a);
+});
+const works=document.getElementById("works");
+WORKS.forEach(w=>{
+  const url=w.yt?(w.land?`https://youtu.be/${w.yt}`:`https://www.youtube.com/shorts/${w.yt}`):(w.url||"");
+  const el=document.createElement(url?"a":"div");
+  el.className="w"+(w.soon?" soon":"");
+  if(url){el.href=url;el.target="_blank";el.rel="noopener"}
+  let th="";
+  if(w.yt){
+    const first=w.land?`https://i.ytimg.com/vi/${w.yt}/hqdefault.jpg`:`https://i.ytimg.com/vi/${w.yt}/oardefault.jpg`;
+    th=`<span class="th${w.land?" land":""}"><img src="${first}" alt="" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://i.ytimg.com/vi/${w.yt}/hqdefault.jpg'}"></span>`;
+  }
+  el.innerHTML=`${th}<span class="band">${esc(w.band)}</span><div class="ttl">${esc(w.ttl)}</div><div class="desc">${esc(w.desc)}</div>${w.meta?`<div class="meta">${esc(w.meta)}</div>`:""}`;
+  works.appendChild(el);
+});
+document.getElementById("copy").addEventListener("click",()=>{
+  const txt=document.getElementById("mail").textContent;const msg=document.getElementById("copied");
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("mail"));const s=getSelection();s.removeAllRanges();s.addRange(r);msg.textContent="選択しました。長押しでコピーしてください。"};
+  try{navigator.clipboard.writeText(txt).then(()=>{msg.textContent="コピーしました。"}).catch(sel)}catch(e){sel()}
+});
+</script>
+</body>
+</html>
