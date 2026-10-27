@@ -195,18 +195,16 @@ const LINKS = [
   {t:"note",      s:"制作の裏側", url:"https://note.com/zure_cinema"}
 ];
 const WORKS = [
-  {band:"礼法無双 捌ノ型", ttl:"レジ列に割り込む女を成敗", desc:"ビジネスマナーを武道のように大げさに描く連作。", meta:"36.1万回再生", yt:"y1EEo1NkS4Q"},
-  {band:"礼法無双 陸ノ型", ttl:"カスハラ客をさすまたで成敗", desc:"店員を怒鳴る客を、動きで見せるアクション回。", meta:"16.9万回再生", yt:"zkHsEf39UJU"},
-  {band:"礼法無双 拾ノ型", ttl:"わざとぶつかる男を成敗", desc:"道を譲っただけで、男は電車に運ばれていく。", meta:"13.4万回再生", yt:"k99YjjrwPMk"},
-  {band:"礼法無双 漆ノ型", ttl:"パワハラ上司をシュレッダーで成敗", desc:"資料を叩きつける上司に、専務が一撃。", meta:"4.6万回再生", yt:"8NMSRV278DU"},
-  {band:"失言末路 肆ノ言", ttl:"「私の仕事じゃないんで」", desc:"と言った先輩の末路。リアル系の職場ショートドラマ。", meta:"10.7万回再生", yt:"_n3Wsvd26Wk"},
-  {band:"失言末路 拾弐ノ言", ttl:"「録音なんかしてないよな？」", desc:"と新人に言った部長の末路。", meta:"8.7万回再生", yt:"4LKcu2Qxevs"},
-  /* 公開したら soon を消して yt:"eQ5G33Wxugk" を入れる */
-  {band:"失言末路 捌ノ言", ttl:"オンライン会議の回", desc:"会議画面の中で進むドラマ。画面構成ごとAIで制作。", meta:"近日公開", soon:true},
-  {band:"店舗CM", ttl:"七灯珈琲 15秒CM", desc:"架空の珈琲店のCM。横長16:9の広告向け。", meta:"", yt:"tqUF6qrWWtE", land:true},
-  {band:"映画予告編", ttl:"ロストエラ ―還れない世界―", desc:"気づいたら目の前に恐竜がいた。逃げ場のない予告編。", meta:"", yt:"Ce9lUCjwPoE"},
-  {band:"予告編", ttl:"ショートドラマの予告編", desc:"映画の予告編のように見せる短尺作品。", meta:"", yt:"_F8bq3cnQac"},
-  {band:"ホラー連作", ttl:"狂怖街", desc:"違和感と不気味さで見せるホラーの連作。「その部屋に入ってはいけない」「先住者」など。", meta:"", yt:"Y7Z_6_aAPcc", url:"https://www.youtube.com/@KYOFU-GAI"},
+  {band:"アクション", ttl:"カスハラ客をさすまたで成敗", desc:"礼法無双 陸ノ型。店員を怒鳴る客を、動きで見せる成敗劇。", yt:"zkHsEf39UJU"},
+  /* 公開したら soon を消して yt:"動画ID" を入れる */
+  {band:"ゲーム実写化", ttl:"屈伸で煽るガキをリアル格ゲーで成敗", desc:"礼法無双 拾壱ノ型。格闘ゲームの画面を実写で再現。", meta:"近日公開", soon:true},
+  {band:"職場ドラマ", ttl:"「録音なんかしてないよな？」", desc:"失言末路 拾弐ノ言。新人に言った部長の末路を描くリアル系ドラマ。", yt:"4LKcu2Qxevs"},
+  {band:"画面演出", ttl:"オンライン会議の回", desc:"失言末路 捌ノ言。会議画面の中だけで進むドラマ。", meta:"近日公開", soon:true},
+  {band:"予告編", ttl:"締切 ―DEADLINE―", desc:"金曜17時の締切を、災害映画の予告編のように描いた作品。", yt:"ZnCietZmL08"},
+  {band:"映画予告編", ttl:"ロストエラ ―還れない世界―", desc:"気づいたら目の前に恐竜がいた。映画の予告編のような作品。", yt:"Ce9lUCjwPoE"},
+  {band:"店舗CM", ttl:"七灯珈琲 15秒CM", desc:"架空の珈琲店のCM。横長16:9の広告向け。", yt:"tqUF6qrWWtE", land:true},
+  {band:"予告編", ttl:"ショートドラマの予告編", desc:"映画の予告編のように見せる短尺作品。", yt:"_F8bq3cnQac"},
+  {band:"ホラー", ttl:"狂怖街", desc:"違和感と不気味さで見せるホラーの連作。「その部屋に入ってはいけない」「先住者」など。", yt:"Y7Z_6_aAPcc", url:"https://www.youtube.com/@KYOFU-GAI"},
   {band:"サスペンス", ttl:"戦慄日和", desc:"前後編のサスペンス・スリラー。", meta:"制作中", soon:true}
 ];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
