@@ -74,6 +74,7 @@ button:hover{background:var(--ink);color:var(--paper)}
 .plan.launch{background:var(--wine-soft)}
 .plan.launch .pn{color:var(--wine)}
 .plan .tag2{display:inline-block;background:var(--wine);color:#fff;font-family:var(--f-body);font-size:11px;font-weight:700;padding:1px 7px;margin-left:6px;vertical-align:3px}
+.incl{font-size:13px;margin:0 0 10px;line-height:1.7}
 .small{font-size:12px;color:var(--muted);margin:10px 0 0;line-height:1.7}
 .tools{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:12px 0 0;padding:12px 14px;border:1px solid var(--line);font-size:12px}
 .tools::before{content:"使用ツール";grid-column:1 / -1;font-weight:700;color:var(--wine);letter-spacing:.1em;margin-bottom:2px}
@@ -107,6 +108,20 @@ button:hover{background:var(--ink);color:var(--paper)}
 @media (max-width:360px){.works{grid-template-columns:1fr}}
 
 /* 流れ */
+.faq{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;padding:12px 4px;font-weight:700;font-size:14px;list-style:none;display:flex;gap:10px;align-items:baseline}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:var(--f-display);font-weight:800;color:var(--wine)}
+.faq summary::after{content:"＋";margin-left:auto;color:var(--muted);font-weight:400}
+.faq details[open] summary::after{content:"－"}
+.faq p{margin:0;padding:0 4px 14px 24px;font-size:13px;color:var(--muted);line-height:1.8}
+.legal{font-size:12px;color:var(--muted)}
+.legal summary{cursor:pointer;text-align:center}
+.legal dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:12px 0 0;padding:12px 14px;border:1px solid var(--line);text-align:left}
+.legal dt{font-weight:700}
+.legal dd{margin:0;min-width:0}
+footer{display:flex;flex-direction:column;gap:6px}
 ol.flow{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;counter-reset:f}
 ol.flow li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:baseline;font-size:14px}
 ol.flow li::before{counter-increment:f;content:counter(f);font-family:var(--f-display);font-weight:800;color:var(--wine);font-size:18px}
@@ -154,12 +169,14 @@ footer{text-align:center;font-size:12px;color:var(--muted)}
 
   <section aria-labelledby="h-price">
     <h2 id="h-price">料金の目安</h2>
+    <p class="incl">どのプランも、企画・構成から絵コンテでのご確認、映像生成・編集・テロップ・BGM、フルHD（1080p）での納品まで含みます。</p>
     <div class="plans">
-      <div class="plan launch"><span class="pn">立ち上げ期<span class="tag2">先着3件</span></span><span class="pl">ショート15〜30秒／制作事例として紹介OKの方</span><span class="pp">30,000<small>円</small></span></div>
-      <div class="plan"><span class="pn">ショート</span><span class="pl">15〜30秒／SNS投稿向け</span><span class="pp">50,000<small>円</small></span></div>
-      <div class="plan"><span class="pn">標準</span><span class="pl">30〜60秒／ナレーション・オリジナルBGM付き</span><span class="pp">150,000<small>円</small></span></div>
+      <div class="plan launch"><span class="pn">立ち上げ期<span class="tag2">先着3件</span></span><span class="pl">〜30秒／制作事例として紹介OKの方</span><span class="pp">30,000<small>円</small></span></div>
+      <div class="plan"><span class="pn">ショートS</span><span class="pl">〜15秒／SNS投稿向け</span><span class="pp">50,000<small>円〜</small></span></div>
+      <div class="plan"><span class="pn">ショートM</span><span class="pl">16〜30秒／SNS投稿・CM向け</span><span class="pp">80,000<small>円〜</small></span></div>
+      <div class="plan"><span class="pn">標準</span><span class="pl">31〜60秒／会社紹介・採用向け</span><span class="pp">150,000<small>円〜</small></span></div>
     </div>
-    <p class="small">尺の延長・オリジナルキャラクター・オリジナルBGMなどのオプションもご用意しています。内容に合わせてお見積もりします。<br>実在の人物の写真を使う場合は、ご本人の了承をお願いしています。</p>
+    <p class="small">料金は目安です。ご予算に合わせてご相談ください。オリジナルキャラクター・オリジナルBGM・高画質での生成などのオプションもあります。<br>実在の人物の写真を使う場合は、ご本人の了承をお願いしています。</p>
     <dl class="tools">
       <dt>映像</dt><dd>Kling／Seedance／Veo（Google Flow）／MiniMax／Zopia</dd>
       <dt>画像</dt><dd>Nano Banana／GPT Image／Seedream</dd>
@@ -178,13 +195,41 @@ footer{text-align:center;font-size:12px;color:var(--muted)}
     </ol>
   </section>
 
-  <footer>© ズレシネマ</footer>
+  <section aria-labelledby="h-faq">
+    <h2 id="h-faq">よくある質問</h2>
+    <div class="faq">
+      <details><summary>修正は何回できますか？</summary><p>無料での修正は1回です。2回目以降は、オプションとして追加料金で承ります。映像を作る前に、絵コンテで構成を一緒に確認するので、大きな作り直しが起きにくい進め方にしています。</p></details>
+      <details><summary>お支払いはいつですか？</summary><p>着手時に半額、納品時に残りの半額をお支払いいただきます。</p></details>
+      <details><summary>納品した動画は、商用で使えますか？</summary><p>使えます。商用利用が認められたツールとプランだけで制作しています。広告として配信する場合は、ご相談の際にお知らせください。</p></details>
+      <details><summary>納期はどのくらいですか？</summary><p>内容や長さによって変わるため、ご相談のうえで決めています。ご希望の納期があれば、フォームにご記入ください。</p></details>
+      <details><summary>写真や素材がなくても頼めますか？</summary><p>大丈夫です。人物も背景もAIで作るので、撮影や素材の用意は必要ありません。お店や商品の写真があれば、より実物に近い映像にできます。</p></details>
+    </div>
+  </section>
+
+  <footer>
+    <p class="legal" style="margin:0;text-align:center">いただいた情報は、ご相談への返信と制作のためだけに使います。</p>
+    <details class="legal">
+      <summary>運営者・特定商取引法に基づく表記</summary>
+      <dl>
+        <dt>屋号</dt><dd>ズレシネマ</dd>
+        <dt>運営者</dt><dd>ご請求があれば、遅滞なく開示します</dd>
+        <dt>所在地・電話番号</dt><dd>ご請求があれば、遅滞なく開示します</dd>
+        <dt>活動拠点</dt><dd>東京都</dd>
+        <dt>メールアドレス</dt><dd>zurecinema@gmail.com</dd>
+        <dt>販売価格</dt><dd>料金の目安のとおり。内容に応じてお見積もりします</dd>
+        <dt>お支払い時期</dt><dd>着手時に半額、納品時に残りの半額</dd>
+        <dt>引き渡し時期</dt><dd>ご相談のうえ、お見積もり時に決めた納期</dd>
+        <dt>キャンセル</dt><dd>制作の性質上、着手後のキャンセルによる返金はいたしかねます</dd>
+      </dl>
+    </details>
+    <span style="text-align:center">© ズレシネマ</span>
+  </footer>
 </div>
 
 <script>
 /* ここを書き換えるだけで更新できます。yt に動画IDを入れるとサムネイルが出ます。url が空のものはリンクなしになります */
 /* GoogleフォームのURLを入れると「フォームで相談する」ボタンが出ます */
-const FORM_URL = "";
+const FORM_URL = "https://forms.gle/wjF7QBobaMAERUrD9";
 if(FORM_URL){const f=document.getElementById("formbtn");f.href=FORM_URL;f.hidden=false;}
 const LINKS = [
   {t:"Instagram", s:"毎日18時更新", url:"https://www.instagram.com/zure_cinema/"},
