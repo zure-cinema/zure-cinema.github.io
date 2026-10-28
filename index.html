@@ -75,6 +75,17 @@ button:hover{background:var(--ink);color:var(--paper)}
 .plan.launch .pn{color:var(--wine)}
 .plan .tag2{display:inline-block;background:var(--wine);color:#fff;font-family:var(--f-body);font-size:11px;font-weight:700;padding:1px 7px;margin-left:6px;vertical-align:3px}
 .incl{font-size:13px;margin:0 0 10px;line-height:1.7}
+.opt{margin-top:10px;border:1px solid var(--line);background:var(--sheet)}
+.opt summary{cursor:pointer;padding:12px 14px;font-weight:700;font-size:14px;list-style:none;display:flex}
+.opt summary::-webkit-details-marker{display:none}
+.opt summary::after{content:"＋";margin-left:auto;color:var(--muted);font-weight:400}
+.opt[open] summary::after{content:"－"}
+.opt table{width:100%;border-collapse:collapse;font-size:12px}
+.opt th,.opt td{padding:9px 14px;border-top:1px solid var(--line);text-align:left;vertical-align:top}
+.opt th{white-space:nowrap;font-weight:700}
+.opt td{color:var(--muted)}
+.opt td:last-child{color:var(--ink);font-weight:700;white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:420px){.opt tr{display:grid;grid-template-columns:1fr auto}.opt th{grid-column:1}.opt td:last-child{grid-column:2;grid-row:1;border-top:1px solid var(--line)}.opt td:nth-child(2){grid-column:1 / -1;border-top:0;padding-top:0}}
 .small{font-size:12px;color:var(--muted);margin:10px 0 0;line-height:1.7}
 .tools{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:12px 0 0;padding:12px 14px;border:1px solid var(--line);font-size:12px}
 .tools::before{content:"使用ツール";grid-column:1 / -1;font-weight:700;color:var(--wine);letter-spacing:.1em;margin-bottom:2px}
@@ -169,14 +180,23 @@ footer{text-align:center;font-size:12px;color:var(--muted)}
 
   <section aria-labelledby="h-price">
     <h2 id="h-price">料金の目安</h2>
-    <p class="incl">どのプランも、企画・構成から絵コンテでのご確認、映像生成・編集・テロップ・BGM、フルHD（1080p）での納品まで含みます。</p>
+    <p class="incl">どのプランも、企画・構成から絵コンテでのご確認、映像生成・編集・テロップ・BGM・ナレーション、フルHD（1080p）での納品まで含みます。</p>
     <div class="plans">
       <div class="plan launch"><span class="pn">立ち上げ期<span class="tag2">先着3件</span></span><span class="pl">〜30秒／制作事例として紹介OKの方</span><span class="pp">30,000<small>円</small></span></div>
       <div class="plan"><span class="pn">ショートS</span><span class="pl">〜15秒／SNS投稿向け</span><span class="pp">50,000<small>円〜</small></span></div>
       <div class="plan"><span class="pn">ショートM</span><span class="pl">16〜30秒／SNS投稿・CM向け</span><span class="pp">80,000<small>円〜</small></span></div>
       <div class="plan"><span class="pn">標準</span><span class="pl">31〜60秒／会社紹介・採用向け</span><span class="pp">150,000<small>円〜</small></span></div>
     </div>
-    <p class="small">料金は目安です。ご予算に合わせてご相談ください。オリジナルキャラクター・オリジナルBGM・高画質での生成などのオプションもあります。<br>実在の人物の写真を使う場合は、ご本人の了承をお願いしています。</p>
+    <details class="opt"><summary>オプション一覧</summary>
+      <table>
+        <tr><th>オリジナルキャラクター</th><td>専用の人物やマスコットを作り、今後の動画でも同じ見た目で使えます</td><td>+10,000円</td></tr>
+        <tr><th>派生バージョン</th><td>冒頭違い・テロップ違い・尺違いなど</td><td>+20,000円</td></tr>
+        <tr><th>別サイズ版</th><td>縦⇔横など。映像を作り直すため、内容によってはお受けできない場合があります</td><td>料金の+50%</td></tr>
+        <tr><th>追加修正</th><td>無料の1回を超えた分。作り直す長さによって変わります</td><td>料金の10〜30%</td></tr>
+        <tr><th>サムネイル</th><td>投稿の表紙になる画像（タイトル文字入り）</td><td>+3,000円</td></tr>
+      </table>
+    </details>
+    <p class="small">料金は目安です。ご予算に合わせてご相談ください。<br>実在の人物の写真を使う場合は、ご本人の了承をお願いしています。</p>
     <dl class="tools">
       <dt>映像</dt><dd>Kling／Seedance／Veo（Google Flow）／MiniMax／Zopia</dd>
       <dt>画像</dt><dd>Nano Banana／GPT Image／Seedream</dd>
@@ -198,9 +218,9 @@ footer{text-align:center;font-size:12px;color:var(--muted)}
   <section aria-labelledby="h-faq">
     <h2 id="h-faq">よくある質問</h2>
     <div class="faq">
-      <details><summary>修正は何回できますか？</summary><p>無料での修正は1回です。2回目以降は、オプションとして追加料金で承ります。映像を作る前に、絵コンテで構成を一緒に確認するので、大きな作り直しが起きにくい進め方にしています。</p></details>
+      <details><summary>修正は何回できますか？</summary><p>無料での修正は1回です。2回目以降は、作り直す長さに応じて料金の10〜30%で承ります。映像を作る前に、絵コンテで構成を一緒に確認するので、大きな作り直しが起きにくい進め方にしています。</p></details>
       <details><summary>お支払いはいつですか？</summary><p>着手時に半額、納品時に残りの半額をお支払いいただきます。</p></details>
-      <details><summary>納品した動画は、商用で使えますか？</summary><p>使えます。商用利用が認められたツールとプランだけで制作しています。広告として配信する場合は、ご相談の際にお知らせください。</p></details>
+      <details><summary>納品した動画は、商用で使えますか？</summary><p>使えます。商用利用が認められたツールとプランだけで制作しています。広告で使う場合は、冒頭違いなどの派生バージョンを作って効果を比べる方法もご提案できます。</p></details>
       <details><summary>納期はどのくらいですか？</summary><p>内容や長さによって変わるため、ご相談のうえで決めています。ご希望の納期があれば、フォームにご記入ください。</p></details>
       <details><summary>写真や素材がなくても頼めますか？</summary><p>大丈夫です。人物も背景もAIで作るので、撮影や素材の用意は必要ありません。お店や商品の写真があれば、より実物に近い映像にできます。</p></details>
     </div>
